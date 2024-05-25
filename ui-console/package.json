@@ -1,8 +1,11 @@
 {
-  "name": "wpr381-assignment1",
+  "name": "ui-console",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,6 +13,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@spotify/web-api-ts-sdk": "^1.2.0"
+    "chalk": "^5.3.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
   }
 }
