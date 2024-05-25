@@ -16,16 +16,16 @@ function printArtists(items)
 (async () => {
 
     console.log(`Searching Spotify for song...`);
-
+    const credentials = SpotifyApi.withUserAuthorization();
     const api = SpotifyApi.withClientCredentials(
-        "d0a9cdda035a4a17bc8c1e1bd73fddff",
-        "4d23968290e84ae584050a695c8fa90f"
+        "your-client-id",
+        "your-client-secret"
     );
 
     //const items = await api.search("Bones", ["track"]);
-    const items = await api.search("Bones", ["track"]);
+    const items = await api.search("Bones", ["artist"]);
     //const items = await items api.song()
-    //printSearch(items);
+    printArtists(items);
     
     
 
