@@ -53,8 +53,40 @@ const searchArtistAlbums = async (req, res) => {
     }
 }
 
+const searchArtistTracks = async (req, res) => {
+    try {
+        const { artistID } = req.query;
+        const artistTracks = await spotifyApi.artists.topTracks(artistID);
+        res.status(200).json({
+            data: artistTracks
+        });
+    } catch(e) {
+        // replace with custom status code if needed
+        res.status(500).json({
+            message: e.message
+        })
+    }
+}
+
+const searchRelatedArtist = async (req, res) => {
+    try {
+        const { artistID } = req.query;
+        const relatedArtists = await spotifyApi.artists.relatedArtists(artistID);
+        res.status(200).json({
+            data: relatedArtists
+        });
+    } catch(e) {
+        // replace with custom status code if needed
+        res.status(500).json({
+            message: e.message
+        })
+    }
+}
+
 module.exports = {
     searchArtists,
     searchArtist,
     searchArtistAlbums,
+    searchArtistTracks,
+    searchRelatedArtist,
 }
