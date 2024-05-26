@@ -13,7 +13,8 @@ const getArtistAlbums = async (req, res) => {
     //const albums = [];
     //const { id } = req.query;
     //temp ="4llAOeA6kEF4ytaB2fsmcW";
-    albums = await spotifyApi.artists.albums(req.query.artist_id);
+    const { artist_id } = req.query;
+    const albums = await spotifyApi.artists.albums(artist_id);
     res.status(200).json({
       data: albums,
     });
