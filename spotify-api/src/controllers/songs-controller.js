@@ -1,29 +1,27 @@
-const spotifyApi = require('../lib/spotify-api');
-const {Request, Response} = require('express');
+const spotifyApi = require("../lib/spotify-lib/spotify-api");
+const { Request, Response } = require("express");
 
 /**
  * Route returning all songs related to an artist.
  *
  * @param {Request} req - The request object.
  * @param {Response} res - The response object.
- * 
+ *
  */
 const getArtistSongs = async (req, res) => {
     try {
-        const songs = [];
-
-        //replace with logic
-
+        const { artistID } = req.query;
+        const songs = await spotifyApi.artists.topTracks(artistID);
         res.status(200).json({
-            data: songs
-        })
-    } catch(e) {
+            data: songs,
+        });
+    } catch (e) {
         // replace with custom status code if needed
         res.status(500).json({
-            message: e.message
-        })
+            message: e.message,
+        });
     }
-}
+};
 
 /**
  * Route returning all songs related to an album.
@@ -39,22 +37,22 @@ const getAlbumSongs = async (req, res) => {
         //replace with logic
 
         res.status(200).json({
-            data: songs
-        })
-    } catch(e) {
+            data: songs,
+        });
+    } catch (e) {
         // replace with custom status code if needed
         res.status(500).json({
-            message: e.message
-        })
+            message: e.message,
+        });
     }
-}
+};
 
 /**
  * Route returning top 100 songs, with optional genre filter `/:genre`.
  *
  * @param {Request} req - The request object.
  * @param {Response} res - The response object.
- * 
+ *
  */
 const getTop100Songs = async (req, res) => {
     try {
@@ -63,18 +61,18 @@ const getTop100Songs = async (req, res) => {
         //replace with logic
 
         res.status(200).json({
-            data: songs
-        })
-    } catch(e) {
+            data: songs,
+        });
+    } catch (e) {
         // replace with custom status code if needed
         res.status(500).json({
-            message: e.message
-        })
+            message: e.message,
+        });
     }
-}
+};
 
 module.exports = {
     getArtistSongs,
     getAlbumSongs,
     getTop100Songs,
-}
+};
