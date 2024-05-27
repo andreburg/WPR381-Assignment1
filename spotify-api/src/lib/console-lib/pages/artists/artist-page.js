@@ -1,16 +1,24 @@
-const { searchArtist } = require("../../../spotify-lib/endpoints/artists");
 const inquirer = require("inquirer");
-const albumPage = require("../albums/album-page");
-const albumsPage = require("../albums/albums-page");
-const songsPage = require("../songs/songs-page");
+const chalk = require("chalk");
+const artistSongsPage = require("../songs/artist-songs-page");
+const artistAlbumsPage = require("../albums/artist-albums-page");
+const { searchArtist } = require("../../../spotify-lib/endpoints/artists");
 
-const artistPage = (artistID) => () => {
+/**
+ * **Function that renders a page to navigate to an artists albums or songs.**
+ *
+ * @param {String} artistID **Used to search API for an artist with the same ID.**.
+ * @param {() => void} back **When a user wants to navigate back the function will callback this function**.
+ *
+ */
+const artistPage = (artistID, back) => () => {
     console.clear();
+    console.log(chalk.bgWhite.bold.black("ARTIST PROFILE"));
     searchArtist(artistID).then((artist) => {
         console.table(
             [artist].map((artist) => ({
                 "Artist Name": artist.name,
-                Link: artist.external_urls.spotify || "",
+                Link: artist.external_urls?.spotify || "",
                 Genres: artist.genres.join(", "),
                 Popularity: artist.popularity,
                 Followers: artist.followers.total || 0,
@@ -24,11 +32,15 @@ const artistPage = (artistID) => () => {
             choices: [
                 {
                     name: "albums",
-                    value: albumsPage(artist.id),
+                    value: artistAlbumsPage(artist, artistPage(artistID, back)),
                 },
                 {
                     name: "songs",
-                    value: songsPage(artist.id),
+                    value: artistSongsPage(artist, artistPage(artistID, back)),
+                },
+                {
+                    name: chalk.red("Go Back"),
+                    value: back,
                 },
             ],
         };

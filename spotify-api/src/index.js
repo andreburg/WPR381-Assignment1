@@ -1,24 +1,10 @@
+// Pull in all of our environment variables allowing us to keep our secrets secure.
 require("dotenv").config();
-const express = require("express");
-const indexRouter = require("./routes");
-const bodyParser = require("body-parser");
-const cors = require("cors");
-const { homePage } = require("./lib/console-lib/pages/home-page");
+const { homePage } = require("./lib/console-lib/pages/home-page.js");
 
-const app = express();
-PORT = process.env.PORT || 9977;
-
-app.set("view engine", "ejs");
-
-app.use(cors());
-app.use(bodyParser.json());
-app.use(express.urlencoded({ extended: true }));
-
-// for all routes "/*" we will use this router.
-app.use(indexRouter);
-
-app.listen(PORT, () => {
-    // Run Console App()
-    console.log(`Listening on http://localhost:${PORT}.`);
-    homePage()();
-});
+/*
+    The pages are setup in a normalized way where the functions return functions, 
+    allowing us to pass parameters down from the higher order functions for easier manipulation of the actions of the functions.
+*/
+// Invoke "Home Page" as soon as app runs...
+homePage()();
