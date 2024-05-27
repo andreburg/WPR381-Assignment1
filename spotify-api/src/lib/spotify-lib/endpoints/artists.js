@@ -1,12 +1,10 @@
 const chalk = require("chalk");
 const spotifyApi = require("../spotify-api");
-const { Request, Response } = require("express");
 
 /**
  * All artists related to a name.
  *
- * @param {Request} req - The request object.
- * @param {Response} res - The response object.
+ * @param {String} name - The text that will be used to search and filter for artists.
  *
  * @returns {Promise<Object[]>}
  */
@@ -24,8 +22,7 @@ const searchArtists = async (name) => {
 /**
  * Returns detailed information about an artist.
  *
- * @param {Request} req - The request object.
- * @param {Response} res - The response object.
+ * @param {String} artistID - The artist ID that will be used to find detailed information about an artist.
  *
  * @returns {Promise<Object>}
  */
