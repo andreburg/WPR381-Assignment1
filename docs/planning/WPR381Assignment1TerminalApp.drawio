@@ -1,22 +1,28 @@
 <mxfile host="65bd71144e">
     <diagram name="Page-1" id="ldYS70GKHW4Vuoi-DTgQ">
-        <mxGraphModel dx="3879" dy="669" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="3879" dy="669" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#FFFFFF" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
                 <mxCell id="jmdBPSvWRvTbUd2tyXu5-42" value="Start" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
-                    <mxGeometry x="-2260" y="10" width="160" height="86" as="geometry"/>
+                    <mxGeometry x="-2270" y="20" width="160" height="146" as="geometry"/>
                 </mxCell>
                 <mxCell id="jmdBPSvWRvTbUd2tyXu5-43" value="1. Search for artists using name." style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" parent="jmdBPSvWRvTbUd2tyXu5-42" vertex="1">
                     <mxGeometry y="26" width="160" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="jmdBPSvWRvTbUd2tyXu5-45" value="2. Quit." style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" parent="jmdBPSvWRvTbUd2tyXu5-42" vertex="1">
+                <mxCell id="46" value="2. Search for songs using name." style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="jmdBPSvWRvTbUd2tyXu5-42">
                     <mxGeometry y="56" width="160" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="jmdBPSvWRvTbUd2tyXu5-45" value="3. Search for albums using name.&lt;br&gt;4. Quit." style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" parent="jmdBPSvWRvTbUd2tyXu5-42" vertex="1">
+                    <mxGeometry y="86" width="160" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" value="4. Quit" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="jmdBPSvWRvTbUd2tyXu5-42">
+                    <mxGeometry y="116" width="160" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="jmdBPSvWRvTbUd2tyXu5-46" value="Closes the programm" style="rounded=0;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=1;" parent="1" vertex="1">
                     <mxGeometry x="-1980" y="10" width="100" height="100" as="geometry"/>
                 </mxCell>
-                <mxCell id="jmdBPSvWRvTbUd2tyXu5-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="jmdBPSvWRvTbUd2tyXu5-45" target="jmdBPSvWRvTbUd2tyXu5-46" edge="1">
+                <mxCell id="jmdBPSvWRvTbUd2tyXu5-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="47" target="jmdBPSvWRvTbUd2tyXu5-46" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="jmdBPSvWRvTbUd2tyXu5-53" value="List of artists" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
@@ -157,6 +163,17 @@
                             <mxPoint x="-2040" y="261"/>
                         </Array>
                     </mxGeometry>
+                </mxCell>
+                <mxCell id="48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=sharp;jumpSize=6;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="46" target="20">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="-2090" y="81"/>
+                            <mxPoint x="-2090" y="271"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=sharp;jumpSize=6;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="jmdBPSvWRvTbUd2tyXu5-45" target="28">
+                    <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
