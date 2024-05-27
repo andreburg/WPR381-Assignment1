@@ -49,3 +49,12 @@ Create a lightweight console application that allows a user to navigate the spot
 ```bash
     npm run start
 ```
+
+<hr>
+
+**Authors**
+
+-   Adrian Christopher Conradie - 600548
+-   Andre Burger - 577387
+-   Gomolemo Maswabi - 578599
+-   Stefan Sutherland - 577574
