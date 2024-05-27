@@ -1,4 +1,5 @@
-const spotifyApi = require("../lib/spotify-lib/spotify-api");
+const artistsEndpoint = require("../lib/spotify-lib/endpoints/artists");
+const path = require("path");
 const { Request, Response } = require("express");
 
 /**
@@ -11,10 +12,14 @@ const { Request, Response } = require("express");
 const searchArtists = async (req, res) => {
     try {
         const { name } = req.query;
-        const artists = await spotifyApi.search(name, ["artist"], "ZA", 50);
-        res.status(200).json({
-            data: artists,
-        });
+        artistsEndpoint.searchArtists(name);
+        const artists = await artistsEndpoint.searchArtists(name);
+        res.status(200).render(
+            path.join(__dirname, "src", "../../", "views", "artist.ejs"),
+            {
+                artists,
+            }
+        );
     } catch (e) {
         // replace with custom status code if needed
         res.status(500).json({
@@ -23,10 +28,17 @@ const searchArtists = async (req, res) => {
     }
 };
 
+/**
+ * Route returning all artists related to a query parameter.
+ *
+ * @param {Request} req - The request object.
+ * @param {Response} res - The response object.
+ *
+ */
 const searchArtist = async (req, res) => {
     try {
-        const { artistID } = req.query;
-        const artist = await spotifyApi.artists.get(artistID);
+        const { id } = req.params;
+        const artist = await artistsEndpoint.searchArtist(id);
         res.status(200).json({
             data: artist,
         });
@@ -38,10 +50,17 @@ const searchArtist = async (req, res) => {
     }
 };
 
+/**
+ * Route returning all artists related to a query parameter.
+ *
+ * @param {Request} req - The request object.
+ * @param {Response} res - The response object.
+ *
+ */
 const searchRelatedArtist = async (req, res) => {
     try {
         const { artistID } = req.query;
-        const relatedArtists = await spotifyApi.artists.relatedArtists(
+        const relatedArtists = await artistsEndpoint.searchRelatedArtist(
             artistID
         );
         res.status(200).json({
@@ -58,7 +77,5 @@ const searchRelatedArtist = async (req, res) => {
 module.exports = {
     searchArtists,
     searchArtist,
-    searchArtistAlbums,
-    searchArtistTracks,
     searchRelatedArtist,
 };

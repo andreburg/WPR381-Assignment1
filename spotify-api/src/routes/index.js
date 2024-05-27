@@ -1,10 +1,20 @@
-const albumsRouter = require('./routers/albums-router');
-const artistsRouter = require('./routers/artists-router');
-const songsRouter = require('./routers/songs-router');
-const indexRouter = require('express').Router();
+const albumsRouter = require("./routers/albums-router");
+const artistsRouter = require("./routers/artists-router");
+const songsRouter = require("./routers/songs-router");
+const indexRouter = require("express").Router();
 
-indexRouter.use('/albums', albumsRouter);
-indexRouter.use('/artists', artistsRouter);
-indexRouter.use('/songs', songsRouter);
+/*
+ '/(route)'
+    {
+        '/albums' =>  albumsRouter
+    }[route]
+*/
+indexRouter.use("/albums", albumsRouter);
+indexRouter.use("/artists", artistsRouter);
+indexRouter.use("/songs", songsRouter);
+
+/*
+    add some index route indexRouter.use('/', homeRouter)
+*/
 
 module.exports = indexRouter;

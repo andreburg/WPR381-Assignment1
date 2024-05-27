@@ -7,38 +7,19 @@ const { Request, Response } = require("express");
  * @param {Request} req - The request object.
  * @param {Response} res - The response object.
  *
- * @returns {Promise<[]>}
+ * @returns {Promise<Object[]>}
  */
 const getArtistAlbums = async (artistID) => {
-    const albums = await spotifyApi.artists.albums(artistID);
+    const albums = (await spotifyApi.artists.albums(artistID)).items;
     return albums;
 };
 
-/**
- * Route returning top 100 albums, with optional genre filter `/:genre`.
- *
- * @param {Request} req - The request object.
- * @param {Response} res - The response object.
- *
- */
-const getTop100Albums = async (req, res) => {
-    try {
-        const albums = [];
-
-        //replace with logic
-
-        res.status(200).json({
-            data: albums,
-        });
-    } catch (/** @type {Error} */ e) {
-        // replace with custom status code if needed
-        res.status(500).json({
-            message: e.message,
-        });
-    }
+const getAlbumInformation = async (albumID) => {
+    const album = await spotifyApi.albums.get(albumID);
+    return album;
 };
 
 module.exports = {
     getArtistAlbums,
-    getTop100Albums,
+    getAlbumInformation,
 };

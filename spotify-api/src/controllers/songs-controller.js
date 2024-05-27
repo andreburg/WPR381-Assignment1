@@ -47,32 +47,7 @@ const getAlbumSongs = async (req, res) => {
     }
 };
 
-/**
- * Route returning top 100 songs, with optional genre filter `/:genre`.
- *
- * @param {Request} req - The request object.
- * @param {Response} res - The response object.
- *
- */
-const getTop100Songs = async (req, res) => {
-    try {
-        const songs = [];
-
-        //replace with logic
-
-        res.status(200).json({
-            data: songs,
-        });
-    } catch (e) {
-        // replace with custom status code if needed
-        res.status(500).json({
-            message: e.message,
-        });
-    }
-};
-
 module.exports = {
     getArtistSongs,
     getAlbumSongs,
-    getTop100Songs,
 };
